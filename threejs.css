@@ -1,0 +1,288 @@
+   
+            html, body, div, span, applet, object, iframe,
+            h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+            a, abbr, acronym, address, big, cite, code,
+            del, dfn, em, img, ins, kbd, q, s, samp,
+            small, strike, strong, sub, sup, tt, var,
+            b, u, i, center,
+            dl, dt, dd, ol, ul, li,
+            fieldset, form, label, legend,
+            table, caption, tbody, tfoot, thead, tr, th, td,
+            article, aside, canvas, details, embed, 
+            figure, figcaption, footer, header, hgroup, 
+            menu, nav, output, ruby, section, summary,
+            time, mark, audio, video {
+                margin: 0;
+                padding: 0;
+                border: 0;
+                font-size: 100%;
+                font: inherit;
+                vertical-align: baseline;
+            }
+            /* HTML5 display-role reset for older browsers */
+            article, aside, details, figcaption, figure, 
+            footer, header, hgroup, menu, nav, section {
+                display: block;
+            }
+            body {
+                line-height: 1;
+            }
+            ol, ul {
+                list-style: none;
+            }
+            blockquote, q {
+                quotes: none;
+            }
+            blockquote:before, blockquote:after,
+            q:before, q:after {
+                content: '';
+                content: none;
+            }
+            table {
+                border-collapse: collapse;
+                border-spacing: 0;
+            }
+            
+            
+            #container {
+             /* Must manually set width/height */
+             width:178px !important;
+             height:178px !important;
+             overflow:hidden !important;
+            
+             /* The magic centering code */
+             margin:auto;
+             position:absolute;
+             top:0;bottom:0; /* Aligns Vertically - Remove for Horizontal Only */
+             left:0;right:0; /* Aligns Horizontally - Remove for Vertical Only  */
+            
+             /* Prevent div from overflowing main window */
+             max-width:100%;
+             max-height:100%;
+             overflow:auto;
+                
+                
+            }
+    
+            html{
+                font-family:monospace;
+                line-height:30px;
+                height:100%;
+                width:100%;
+                background-color:#EEE;
+            }
+            .empty{
+                background-color:#AED6D2 !important;
+                text-shadow:none !important;
+                box-shadow:none !important;
+                border-color:#7B9E9B !important;
+            }
+            .piece{
+                border-radius: 2px 2px 4px 4px;
+                margin:0px;
+				width:30px !important;
+                min-width:30px !important;
+                display:inline-block;
+                background-color:white;
+                border-style:solid;
+                border-width:1px;
+                border-color:#999;
+                height:30px !important;
+                text-align:center;
+                font-weight:bold;
+                font-size:17px;
+                
+                -webkit-box-shadow: inset 0px -32px 0px -29px rgba(255,221,0,1);
+                -moz-box-shadow: inset 0px -32px 0px -29px rgba(255,221,0,1);
+                box-shadow: inset 0px -32px 0px -29px rgba(255,221,0,1);
+                
+                line-height:26px;
+            }
+            .piece.flipped{
+                transform: translateX( -100% ) rotateY( -360deg );
+            }
+            .one{
+                background-color:#69CDFF;
+                color:white;
+                border-style:solid;
+                border-width:1px;
+                border-color:rgba(72,106,122,0.4);
+                
+                -webkit-box-shadow: inset 0px -32px 0px -29px rgba(73,119,143,1);
+                -moz-box-shadow: inset 0px -32px 0px -29px rgba(73,119,143,1);
+                box-shadow: inset 0px -32px 0px -29px rgba(73,119,143,1);
+            }
+            .two{
+                background-color:#FF6E6E;
+                color:white;
+                border-style:solid;
+                border-width:1px;
+                border-color:rgba(168,89,89,0.4);
+                
+                -webkit-box-shadow: inset 0px -32px 0px -29px rgba(153,64,64,1);
+                -moz-box-shadow: inset 0px -32px 0px -29px rgba(153,64,64,1);
+                box-shadow: inset 0px -32px 0px -29px rgba(153,64,64,1);
+            }
+            .redText{
+                color:#FF6E6E;
+            }
+            .smallerText{
+                font-size: 15px;
+            }
+            #output{
+                width:150px;
+                height:150px;
+                display:inline-block;
+                background-color: #C1E8E4;
+                padding:3px;
+                border-style:solid;
+                border-width:1px;
+                border-color:#7B9E9B;
+                overflow:hidden;
+                line-height:0px;
+                -webkit-box-shadow: inset 0px 2px 13px 1px rgba(0,0,0,0.23);
+                -moz-box-shadow: inset 0px 2px 13px 1px rgba(0,0,0,0.23); 
+                box-shadow: inset 0px -32px 0px -29px #FF6E6E;
+               
+                border-radius: 10px;
+            }
+            
+            .red{
+                -webkit-box-shadow: inset 0px 2px 13px 1px #FF6E6E  !important;
+                -moz-box-shadow: inset 0px 2px 13px 1px #FF6E6E !important; 
+                box-shadow: inset 0px -32px 0px -29px #FF6E6E !important;
+            }
+            
+            .blue{
+                -webkit-box-shadow: inset 0px 2px 13px 1px #69CDFF !important;
+                -moz-box-shadow: inset 0px 2px 13px 1px #69CDFF !important; 
+                box-shadow: inset 0px -32px 0px -29px #69CDFF !important;
+            }
+            
+            .white{
+                -webkit-box-shadow: inset 0px 2px 13px 1px white !important;
+                -moz-box-shadow: inset 0px 2px 13px 1px white !important; 
+                box-shadow: inset 0px -32px 0px -29px white !important;
+            }
+            
+            
+            
+            .flip-container {
+                -webkit-perspective: 1000;
+                -moz-perspective: 1000;
+                -o-perspective: 1000;
+                perspective: 1000;
+                
+                top:0;
+            }
+
+            .flip-container, .front, .back {
+                width: 30px !important;
+                height: 30px  !important;
+                padding:0;
+                display:inline-block;
+                margin:3px;
+            }
+            
+            .flipper {
+                -moz-transform: perspective(1000px);
+                -moz-transform-style: preserve-3d;
+                width: 30px  !important;
+                height: 30px  !important;
+                display:inline-block;
+                position: relative;
+            }
+            
+            .front, .back {
+                
+                margin:3px;
+                
+                -webkit-backface-visibility: hidden;
+                -moz-backface-visibility: hidden;
+                -o-backface-visibility: hidden;
+                backface-visibility: hidden;
+            
+                -webkit-transition: 0.6s;
+                -webkit-transform-style: preserve-3d;
+            
+                -moz-transition: 0.6s;
+                -moz-transform-style: preserve-3d;
+            
+                -o-transition: 0.6s;
+                -o-transform-style: preserve-3d;
+            
+                -ms-transition: 0.6s;
+                -ms-transform-style: preserve-3d;
+            
+                transition: 0.6s;
+                transform-style: preserve-3d;
+            
+             
+                
+                position: absolute;
+               
+            }
+            
+            .back {
+                -webkit-transform: rotateY(-180deg);
+                -moz-transform: rotateY(-180deg);
+                -o-transform: rotateY(-180deg);
+                -ms-transform: rotateY(-180deg);
+                transform: rotateY(-180deg);
+            }
+            
+            .flip-container .back.flipped {
+                -webkit-transform: rotateY(0deg);
+                -moz-transform: rotateY(0deg);
+                -o-transform: rotateY(0deg);
+                -ms-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+            }
+            
+            .flip-container .front.flipped {
+                -webkit-transform: rotateY(180deg);
+                -moz-transform: rotateY(180deg);
+                -o-transform: rotateY(180deg);
+                transform: rotateY(180deg);
+            }
+            
+            
+            .front {
+                z-index: 2;
+            }
+			
+			.connector{
+				line-height:0px !important;
+				height:0px;
+				width:0px;
+				margin:0px;
+				background-color:black;
+				display:inline-block;
+				position:absolute;
+			}
+				.goRight{
+					height:2px !important;
+					width:10px !important;
+					top: 19px;
+					left: 29px;
+				}
+				
+				.goLeft{
+					height:2px !important;
+					width:10px !important;
+					top: 19px;
+					left: 2px;
+				}
+				.goUp{
+					height:10px !important;
+					width:2px !important;
+					top: 4px;
+					left: 19px;
+				}
+				.goDown{
+					height:10px !important;
+					width:2px !important;
+					top: 29px;
+					left: 19px;
+				}
+               
