@@ -162,8 +162,6 @@
             }
             
             Board.prototype.HasPossibleMove = function () {
-                console.clear();
-            
                 //clear connectors booleans
                 for (var y = 0; y < this.pieces.length; y++) {
                     for (var x = 0; x < this.pieces.length; x++) {
